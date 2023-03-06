@@ -17,6 +17,7 @@
 # include<stdlib.h>
 # include<stdio.h>
 # include<limits.h>
+#include "../Push_swap.h"
 
 size_t	ft_strlen(const char *s);
 int		ft_isascii(int c);

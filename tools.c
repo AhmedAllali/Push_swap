@@ -22,8 +22,10 @@ int	ft_check(t_push push)
 {
 	int	i;
 
-	i = 1;
-	while (push.splited[i])
+	i = 0;
+
+		// printf("%s\n", push.splited[i]);
+	while (push.splited && push.splited[i])
 	{
 		if (check_args(push.splited[i]) == 1)
 			ft_exit("ERROR\n");
@@ -74,5 +76,12 @@ int	check_args(char *str)
 			return (1);
 		i++;
 	}
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+		i++;
+	if (str[i])
+		ft_exit("Roor");
 	return (0);
 }

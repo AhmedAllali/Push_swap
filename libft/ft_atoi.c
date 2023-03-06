@@ -12,8 +12,6 @@
 
 #include"libft.h"
 
-#include "libft.h"
-
 int	ft_atoi(const char *s)
 {
 	int				sign;
@@ -35,8 +33,8 @@ int	ft_atoi(const char *s)
 		s++;
 	}
 	if (r > INT_MAX && sign == 1)
-		exit(1);
+		ft_exit("Error");
 	if (r > (unsigned long )INT_MAX + 1 && sign == -1)
-		exit(1);
+		ft_exit("Error");
 	return ((int)(sign * r));
 }

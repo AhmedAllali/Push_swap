@@ -25,7 +25,7 @@ typedef struct s_push
 	int		*values;
 	int		i;
 	int		j;
-}t_push;
+}	t_push;
 
 size_t	ft_getlen(char **av);
 void	concatenateargs(char *av, char *p);

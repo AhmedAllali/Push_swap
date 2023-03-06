@@ -16,12 +16,12 @@ int	check_operator(char *av)
 {
 	int	i ;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		if (av[i] == '-' || av[i] == '+')
 		{
-			if (av[i - 1] != ' ')
+			if (av[i + 1] == '-' || av[i + 1] == '+')
 				return (1);
 			if (!ft_isdigit(av[i + 1]))
 				return (1);
@@ -38,17 +38,14 @@ size_t	ft_getlen(char **av)
 	size_t	len;
 
 	i = 1;
-	j = 0;
 	len = 0;
 	while (av[i])
 	{
-		if (*av[i] == '\0' )
+		j = 0;
+		if (av[i][j] == '\0')
 			ft_exit("Error");
-		while (av[i][j])
-		{
-			if (av[i][j] == ' ' || av[i][j] == '\t')
+		while (av[i][j] && (av[i][j] == ' ' || av[i][j] == '\t'))
 			j++;
-		}
 		if (av[i][j] == '\0')
 			ft_exit("Eroor");
 		len += ft_strlen(av[i]) + 1;
@@ -76,7 +73,7 @@ char	*ft_joinargs(char **av)
 	len = ft_getlen(av);
 	if (len == 0)
 		return (NULL);
-	res = (char *)malloc(len * sizeof (char));
+	res = (char*)malloc(len * sizeof (char));
 	if (!res)
 		return (NULL);
 	p = res;

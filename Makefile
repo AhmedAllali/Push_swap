@@ -12,11 +12,11 @@
 
 NAME = push_swap
 CC = gcc
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall -Werror -Wextra -fsanitize=address
 SRCS = Push_swap.c \
 		tools.c \
 		parsing.c 
-
+# 
 LIB = libft/
 LIBFT= libft/libft.a
 LIBFT_DIR = $(LIB)
