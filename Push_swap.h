@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 04:07:15 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:10:06 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,18 @@ int		hasduplicate(char **arr, int len);
 int		*init_stack(int len);
 void 	ss(t_stack stack);
 void	ft_push(int data, int len, int *stack);
-void 	print_stack(int *stack, int len);
+void 	print_stack(int *stack, int len, int a);
 void	 sa(int *stack, int len);
 void 	sb(int *stack, int len);
-void pb(t_stack *stack);
- void pa(t_stack *stack);
+void	pb(t_stack *stack);
+void	pa(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb (t_stack *stack);
+void	rr(t_stack *stack);
+void rra(t_stack *stack);
+void rrb(t_stack *stack);
+void rrr(t_stack *stack);
+
+
 
 #endif

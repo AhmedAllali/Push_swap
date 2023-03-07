@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:17:15 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 03:30:29 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:41:13 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ void	ft_push(int data, int len, int *stack)
 }
 
 
-void print_stack(int *stack, int len)
+void print_stack(int *stack, int len, int a)
 {
+	if (a)
+	printf("A ");
+	else
+	printf("B ");
+	
 	printf("Stack contents: ");
 	for	(int i = 0; i < len; i++) 
 	{

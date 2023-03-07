@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 05:02:08 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:13:58 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,20 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 	}
 	stack.lena =push.i;
 	stack.lenb = 0;
-	// while (push.i > 0)
-	// {
-	// 	stack.b[0] = 1;
-	// 	stack.b[1] = 2;
-	// 	stack.b[2] = 3;
-	// 	push.i--;
-	// }
-	print_stack(stack.a, stack.lena);
-	// print_stack(stack.b, stack.lenb);
-
+	print_stack(stack.a, stack.lena, 1);
 	pb(&stack);
-	printf("%d\n",stack.lena);
-	printf("%d\n",stack.lenb);
-	
-	// pa(&stack);
-	print_stack(stack.a, stack.lena);
-	print_stack(stack.b, stack.lenb);
+	// print_stack(stack.a, stack.lena, 1);
+	pb(&stack);
+	print_stack(stack.a, stack.lena, 1);
+	print_stack(stack.b, stack.lenb, 0);
+	// print_stack(stack.a, stack.lena, 1);
+	// print_stack(stack.b, stack.lenb, 0);
+	// pb(&stack);
+	// print_stack(stack.a, stack.lena, 1);
+	// print_stack(stack.b, stack.lenb, 0);
+	rrr(&stack);
+	print_stack(stack.a, stack.lena, 1);
+	print_stack(stack.b, stack.lenb, 0);
 }
 
 int	main(int ac, char **av)
