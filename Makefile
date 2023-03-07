@@ -3,19 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahallali <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 19:55:44 by ahallali          #+#    #+#              #
-#    Updated: 2023/03/05 16:37:41 by ahallali         ###   ########.fr        #
+#    Updated: 2023/03/07 01:17:57 by ahallali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address
+FLAGS = -Wall -Werror -Wextra 
 SRCS = Push_swap.c \
 		tools.c \
-		parsing.c 
+		parsing.c\
+		stack.c\
+		instructions.c
 # 
 LIB = libft/
 LIBFT= libft/libft.a

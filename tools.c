@@ -14,7 +14,7 @@
 
 void	ft_exit(char *error)
 {
-	ft_putstr_fd(error, 1);
+	ft_putstr_fd(error, 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -24,13 +24,12 @@ int	ft_check(t_push push)
 
 	i = 0;
 
-		// printf("%s\n", push.splited[i]);
 	while (push.splited && push.splited[i])
 	{
 		if (check_args(push.splited[i]) == 1)
-			ft_exit("ERROR\n");
+			ft_exit("Error\n");
 		if (check_operator(push.splited[i]) != 0)
-			ft_exit("Error++\n");
+			ft_exit("Error\n");
 		i++;
 	}
 	return (i);
@@ -47,8 +46,13 @@ int	hasduplicate(char **arr, int len)
 		j = i + 1;
 		while (j < len)
 		{
-			if (ft_strncmp(arr[i], arr[j], ft_strlen(arr[i])) == 0 && \
-			ft_strlen(arr[i]) == ft_strlen(arr[j]))
+			if (arr[j][0] == '+' )
+				arr[j] = arr[j] + 1;
+			if (arr[i][0] == '+' )
+				arr[i] = arr[i] + 1;
+			if (ft_strncmp(arr[i], arr[j], ft_strlen(arr[i])) == 0 &&
+				ft_strlen(arr[i]) == ft_strlen(arr[j]))
+
 				return (1);
 			j++;
 		}

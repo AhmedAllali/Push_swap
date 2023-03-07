@@ -3,102 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/05 16:37:07 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/07 05:02:08 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	push1(int data, int len, int *stack, int *top)
+
+
+void	ft_pushswap(t_stack stack,t_push push, char **av)
 {
-	if (*top == -1)
-	{
-		stack[len - 1] = data;
-		*top = len -1;
-	}
-	else if (*top == 0)
-	{
-		printf("%d\n", *top);
-		printf("stack full\n");
-	}
-	else
-	{
-		stack[*top -1] = data;
-		(*top)--;
-	}
-}
-	// printf("pushed %d onto stack, top is now %d\n", data, *top);
-
-void	print_stack(int *stack, int len, int top)
-{
-	printf("Stack contents: ");
-	for	(int i = top; i < len; i++) 
-	{
-		printf("%d ", stack[i]);
-	}
-	printf("\n");
-}
-
-int	*init_stack(int len)
-{
-	int	*stack;
-
-	stack = malloc(len * sizeof(int));
-	return (stack);
-}
-
-void	ft_pushswap(t_push push, char **av)
-{
-	int 	*stacka;
-	int		top;
-
+	int check;
+	stack.topb = 0;
+	stack.lena = 0;
 	push.i = 0;
 	push.j = 0;
-	top = -1;
 	push.joined = ft_joinargs(av);
 	push.splited = ft_split(push.joined, ' ');
-	int check = ft_check(push);
-	if (hasduplicate(push.splited, check/*ft_check(push))*/ )== 1)
-		ft_exit("error: Duplication found\n");
-	push.values = malloc(sizeof(int) * check/*ft_check(push)*/);
+	check = ft_check(push);
+	if (hasduplicate(push.splited, check )== 1)
+		ft_exit("Error\n");
+	push.values = malloc(sizeof(int) * check);
 	if (!push.values)
 		return ;
-	while (push.splited[push.i] && check/*ft_check(push)*/ >= push.i + 1)
+	while (push.splited[push.i] && check >= push.i + 1)
 	{
 		push.values[push.i] = ft_atoi(push.splited[push.i]);
 		push.i++;
 	}
-	stacka = init_stack(push.i);
-	while (check--)
+	stack.a = init_stack(push.i);
+	stack.b = init_stack(push.i);
+	while (check)
 	{
-			push1(push.values[push.j], push.i, stacka, &top);
-			push.j++;
+		ft_push(push.values[push.j], push.i, stack.a);
+		push.j++;
+		check--;
 	}
-	print_stack(stacka, push.i , top);
+	stack.lena =push.i;
+	stack.lenb = 0;
+	// while (push.i > 0)
+	// {
+	// 	stack.b[0] = 1;
+	// 	stack.b[1] = 2;
+	// 	stack.b[2] = 3;
+	// 	push.i--;
+	// }
+	print_stack(stack.a, stack.lena);
+	// print_stack(stack.b, stack.lenb);
+
+	pb(&stack);
+	printf("%d\n",stack.lena);
+	printf("%d\n",stack.lenb);
+	
+	// pa(&stack);
+	print_stack(stack.a, stack.lena);
+	print_stack(stack.b, stack.lenb);
 }
 
 int	main(int ac, char **av)
 {
 	t_push	push;
-
+	t_stack stack;
+	stack.topb = 0;
 	push.joined = NULL;
 	if (ac > 1)
 	{
-		ft_pushswap(push, av);
+		ft_pushswap(stack ,push, av);
 	}
 	else
-		ft_exit("Args more than 1");
+		ft_exit("Error\n");
 }
 
-/* check arguments
-join them then split
-check forbidden char
-check duplicate
-init stacks a et b  using linked list
-choose an algo of sort
-and use it to store sorted numbers in the stack a
-i can use stack b if there is some big numbers
-*/
