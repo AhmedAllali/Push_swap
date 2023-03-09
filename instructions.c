@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:15:52 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 23:10:40 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:19:28 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,70 @@ void ss(t_stack stack)
 	sa(stack.a,stack.lena);
 	sb(stack.b,stack.lenb);
 }
+void swap (int *a , int *b)
+{
+	int tmp ;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
  void pb(t_stack *stack)
 {
-	
+	int i = stack->lenb;
+	// int tmp =0;
+	// int j=1;
 	if (stack->lena == 0)
 		return;
-	stack->b[stack->lenb] = stack->a[stack->lena-1];
-	stack->lenb++;
-	stack->lena--;
+	// stack->lena ++;
+	if (stack->lenb == 0){
+		stack->b[0] = stack->a[0];
+		stack->lena--;
+	}
+	else
+	{
+		while (i>=0)
+		{
+		swap (&stack->b[i] , &stack->b[i-1]);
+		i--;
+		}
+		stack->b[0] = stack->a[0];
+		printf("stack->a[0] : %d",stack->a[0]);
+	 	stack->lenb++;
+	}
+	
 }
- void pa(t_stack *stack)
-{
-	int tmp = 0;
-	if (stack->lenb == 0)
-		return;
-	tmp = stack->a[stack->lena];
-	stack->a[stack->lena] = stack->b[stack->lenb - 1];
-	stack->lenb--;
-	stack->lena++;
-}
+	
+	// while (i<=stack->lena)
+	// {
+	// 	stack->a[i]= stack->a[i+1];
+	// 	i++;
+	// }
+	// // if (stack->lenb > 1)
+	// // {
+	// while  (j>=0)
+	// {
+	// 	stack->b[j] = stack->b[j - 1];
+	// 	j--;
+	// }
+	// stack->lenb--;
+	
+//  void pa(t_stack *stack)
+// {
+// 	int tmp = 0;
+// 	int i = 1;
+// 	if (stack->lenb == 0)
+// 		return;
+// 	stack->lena++;
+// 	while (i<stack->lena)
+// 	{
+// 		stack->a[i]=stack->a[i-1];
+// 		i++;
+// 	}
+// 	tmp = stack->a[stack->lena];
+// 	stack->a[0] = stack->b[0];
+// 	stack->a[stack->lena] = tmp;
+// 	stack->lenb--;
+// }
 void ra (t_stack *stack)
 {
 	int tmp = 0;

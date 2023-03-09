@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 23:13:58 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:55 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,42 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 		push.j++;
 		check--;
 	}
+	free(push.values);
 	stack.lena =push.i;
 	stack.lenb = 0;
 	print_stack(stack.a, stack.lena, 1);
-	pb(&stack);
-	// print_stack(stack.a, stack.lena, 1);
-	pb(&stack);
-	print_stack(stack.a, stack.lena, 1);
+	// rra (&stack);
+	stack.b[0] = 1;
+	stack.b[1] = 2;
+	stack.b[2] = 3;
+	stack.lenb=3;
 	print_stack(stack.b, stack.lenb, 0);
 	// print_stack(stack.a, stack.lena, 1);
-	// print_stack(stack.b, stack.lenb, 0);
-	// pb(&stack);
+	// pa(&stack);
+	pb(&stack);
+	// print_stack(stack.a, stack.lena, 1);
+	
+	 pb(&stack);
+	// print_stack(stack.a, stack.lena, 1);
+	 print_stack(stack.a, stack.lena, 1);
+	 print_stack(stack.b, stack.lenb, 0);
+	//  pb(&stack);
+	// // pb(&stack);
 	// print_stack(stack.a, stack.lena, 1);
 	// print_stack(stack.b, stack.lenb, 0);
-	rrr(&stack);
-	print_stack(stack.a, stack.lena, 1);
-	print_stack(stack.b, stack.lenb, 0);
+	// // rrr(&stack);
+	// print_stack(stack.a, stack.lena, 1);
+	// print_stack(stack.b, stack.lenb, 0);
 }
 
+void check_leaks()
+{
+	system ("leaks push_swap");
+}
 int	main(int ac, char **av)
 {
-	t_push	push;
+	// atexit(check_leaks);
+	t_push push;
 	t_stack stack;
 	stack.topb = 0;
 	push.joined = NULL;

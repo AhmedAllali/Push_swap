@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:17:15 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 20:41:13 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/08 01:18:23 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void print_stack(int *stack, int len, int a)
 	else
 	printf("B ");
 	
-	printf("Stack contents: ");
+	printf("Stack contents: \n");
 	for	(int i = 0; i < len; i++) 
 	{
-		printf("%d ", stack[i]);
+		printf("%d\n ", stack[i]);
 	}
 	printf("\n");
 }
