@@ -6,7 +6,7 @@
 #    By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 19:55:44 by ahallali          #+#    #+#              #
-#    Updated: 2023/03/08 00:41:13 by ahallali         ###   ########.fr        #
+#    Updated: 2023/03/09 22:58:19 by ahallali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS = Push_swap.c \
 		tools.c \
 		parsing.c\
 		stack.c\
-		instructions.c
+		instructions.c\
+		is_sorted.c
 # 
 LIB = libft/
 LIBFT= libft/libft.a

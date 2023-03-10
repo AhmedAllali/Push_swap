@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:15:52 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/09 18:19:28 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:36:22 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void swap (int *a , int *b)
 {
 	int i = stack->lenb;
 	// int tmp =0;
-	// int j=1;
+	int j=0;
 	if (stack->lena == 0)
 		return;
 	// stack->lena ++;
@@ -68,8 +68,13 @@ void swap (int *a , int *b)
 		i--;
 		}
 		stack->b[0] = stack->a[0];
-		printf("stack->a[0] : %d",stack->a[0]);
-	 	stack->lenb++;
+		while (j<= stack->lena)
+		{
+		stack->a[j] = stack->a[j + 1];
+		j++;
+		}
+		stack->lena--;
+		stack->lenb++;
 	}
 	
 }

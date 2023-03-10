@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/07 23:10:06 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:19:56 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	rr(t_stack *stack);
 void rra(t_stack *stack);
 void rrb(t_stack *stack);
 void rrr(t_stack *stack);
-
-
+int is_sorted(int *t, int len);
 
 #endif

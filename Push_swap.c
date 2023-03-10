@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/09 18:16:55 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:22:46 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	ft_pushswap(t_stack stack,t_push push, char **av)
 {
 	int check;
+	// int sorted;
 	stack.topb = 0;
 	stack.lena = 0;
 	push.i = 0;
@@ -34,6 +35,9 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 		push.values[push.i] = ft_atoi(push.splited[push.i]);
 		push.i++;
 	}
+	if (is_sorted(push.values, push.i) == 0)
+		ft_exit("Error++");
+
 	stack.a = init_stack(push.i);
 	stack.b = init_stack(push.i);
 	while (check)
@@ -46,28 +50,10 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 	stack.lena =push.i;
 	stack.lenb = 0;
 	print_stack(stack.a, stack.lena, 1);
-	// rra (&stack);
-	stack.b[0] = 1;
-	stack.b[1] = 2;
-	stack.b[2] = 3;
-	stack.lenb=3;
-	print_stack(stack.b, stack.lenb, 0);
-	// print_stack(stack.a, stack.lena, 1);
-	// pa(&stack);
-	pb(&stack);
-	// print_stack(stack.a, stack.lena, 1);
-	
-	 pb(&stack);
-	// print_stack(stack.a, stack.lena, 1);
-	 print_stack(stack.a, stack.lena, 1);
-	 print_stack(stack.b, stack.lenb, 0);
-	//  pb(&stack);
-	// // pb(&stack);
-	// print_stack(stack.a, stack.lena, 1);
 	// print_stack(stack.b, stack.lenb, 0);
-	// // rrr(&stack);
-	// print_stack(stack.a, stack.lena, 1);
-	// print_stack(stack.b, stack.lenb, 0);
+	// rrr(&stack);
+	//  print_stack(stack.a, stack.lena, 1);
+	//  print_stack(stack.b, stack.lenb, 0);
 }
 
 void check_leaks()
