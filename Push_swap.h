@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/10 01:19:56 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/11 03:31:10 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_push
 	char	*joined;
 	char	**splited;
 	int		*values;
-	int		i;
+	int i;
 	int		j;
 	
 } t_push;
@@ -32,7 +32,7 @@ typedef struct s_stack
 {
 	int		*a;
 	int		*b;
-	int *tmp;
+	int 	*fake;
 	int		topa;
 	int		topb;
 	int lena;
@@ -60,9 +60,10 @@ void	pa(t_stack *stack);
 void	ra(t_stack *stack);
 void	rb (t_stack *stack);
 void	rr(t_stack *stack);
-void rra(t_stack *stack);
-void rrb(t_stack *stack);
-void rrr(t_stack *stack);
-int is_sorted(int *t, int len);
+void 	rra(t_stack *stack);
+void	 rrb(t_stack *stack);
+void 	rrr(t_stack *stack);
+int 	is_sorted(int *t, int len);
+void 	swap(int *a, int *b);
 
 #endif

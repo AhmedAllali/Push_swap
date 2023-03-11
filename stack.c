@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:17:15 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/08 01:18:23 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/11 05:07:20 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	*init_stack(int len)
 {
 	int	*stack;
 
-	stack =(int *) malloc(len * sizeof(int));
+	stack =(int *) malloc((len + 1) * sizeof(int));
 	ft_bzero(stack, len);
 	if (!stack)
 		return (0);
@@ -25,31 +25,34 @@ int	*init_stack(int len)
 
 void	ft_push(int data, int len, int *stack)
 {
-	static int k;
+//  int k ;
 
-	if (k < len)
-	{
-		stack[k] = data;
-		k++;
-	}
-	else if (k == len)
-		ft_exit("STACK IS FULL");
-	else 
-		ft_exit("no element in stack ");
+// 	 if (k < len)
+// 	 {
+		stack[len] = data;
+		// len++;
+		// printf("------>%d\n",stack[len]);
+		// 		 k++;
+		// 	 }
+		// 	 else if (k == len)
+		// 	 	ft_exit("STACK IS FULL");
+		// 	 else
+		// 		ft_exit("no element in stack ");
 }
 
 
 void print_stack(int *stack, int len, int a)
 {
-	if (a)
+	if (a=='a')
 	printf("A ");
-	else
+	else if (a=='b')
 	printf("B ");
-	
+	else
+	printf("fake ");
 	printf("Stack contents: \n");
 	for	(int i = 0; i < len; i++) 
 	{
-		printf("%d\n ", stack[i]);
+		printf("%d ", stack[i]);
 	}
 	printf("\n");
 }
