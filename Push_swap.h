@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/11 03:31:10 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:24:40 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,8 @@ void	 rrb(t_stack *stack);
 void 	rrr(t_stack *stack);
 int 	is_sorted(int *t, int len);
 void 	swap(int *a, int *b);
+int * f_to_b(t_stack *stack);
+void sort_table(int * stack,int len);
+
 
 #endif

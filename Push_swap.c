@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/11 06:18:08 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:52:48 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,8 @@ void sort_table(int * stack,int len)
 
 void	ft_pushswap(t_stack stack,t_push push, char **av)
 {
-	int len;
 	int check;
-	int index1,index2;
+	// int index1,index2;
 	stack.topb = 0;
 	stack.lena = 0;
 	push.i = 0;
@@ -94,43 +93,8 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 	stack.lena =push.i;
 	stack.lenb = 0;
 	sort_table(push.values,push.i);
-	int i = 0;
-	int j;
-	while (stack.lena)
-	{
-		len = stack.lena;
-		stack.fake = init_stack(stack.lena);
-		j = 0;
-		while (j < len)
-		{
-			stack.fake[j] = stack.a[j];
-			j++;
-		}
-		j = 0;
-		sort_table(stack.fake,stack.lena);
-		// print_stack(stack.fake, stack.lena, 'c');
-			index1 = (len / 8);
-			index2 = ((len / 9)/2);
-		// printf("------[%d]<", stack.a[0]);
-		// printf("[%d]", stack.fake[index2]);
-		if (stack.a[j] <= stack.fake[index2])
-		{
-			// printf("[[%d]]\n", stack.a[0]);
-			pb(&stack);
-		}
-		else if (stack.a[j]<=stack.fake[index1])
-		{
-			pb(&stack);
-			if (stack.lenb >= 2)
-				rb(&stack);
-		}
-		else
-		{
-			ra(&stack);
-		}
-		free(stack.fake);
-		i++;
-	}
+	// print_stack(stack.b, stack.lenb, 'b');
+	f_to_b(&stack);
 	// printf("------------------siuuuuuuuuu\n");
 	// int i=0;
 	// while (i < 10)
@@ -139,52 +103,67 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 	// 	i++;
 	// }
 	// printf("---------%d",push.i);
-	// print_stack(stack.a, stack.lena, 'a');
+	// print_stack(stack.b, stack.lenb, 'b');
+	// int i =0;
 	int max = 0;
-		// int count;
-		 int target;
-		while (stack.lenb)
-		{
+	
+	int target;
+			// print_stack(stack.b, stack.lenb, 'b');
+	while (stack.lenb)
+	{
+			// printf("stacklenb[%d]\n",stack.lenb);
 			max = (max_stack(stack.b, stack.lenb));
-			 target = stack.b[max];
+			target = stack.b[max];
 			// printf("max value is : [%d] value is : [%d]\n", max, stack.b[max]);
 			// if (max ==0)
-			// 	pa(&stack);
+			// 	pa(&stack); 31 49 
 			// printf("max [%d] len/2 [%d] target [%d] stackb0 [%d]\n", max, stack.lenb / 2, target, stack.b[0]);
-			// print_stack(stack.b, stack.lenb, 0);
-			if (max <= stack.lenb / 2)
+		print_stack(stack.a, stack.lena, 'a');
+		print_stack(stack.b, stack.lenb, 'b');
+		
+		printf("------------------------%d\n",max);
+			if (max < stack.lenb / 2)
+
 			{
+				printf("tmp -----> [%d]",stack.lenb/2);
 				// while (max <= stack.lenb && target != stack.b[0])
-				while (max-- >0)
+				while (max >0)
 				{
 					// printf("max [%d] len [%d] ch&al khaso [%d]\n", max, stack.lenb, stack.lenb - count );
 					// printf("stack length [%d]\n", stack.lenb);
 					rb(&stack);
+					--max;
 				}
+				
 			}
-			else
+			else if (max == stack.lenb /2)
+			{
+				rb(&stack);
+				pa(&stack);
+				
+			}
+			else 
 			{
 
 				// while (max > 0 && target != stack.b[0])
-				while (max++ < stack.lenb)
+				while (max < stack.lenb)
 				{
-					printf("max [%d] length [%d]\n", max, stack.lenb);
-					rrb(&stack);
+					 printf("max [%d] length [%d]\n", max, stack.lenb);
+					rb(&stack);
+					max++;
 				}
 			}
-			printf("expedition de zabi target [%d]  top [%d]\n", target, stack.b[0]);
-			if (target== stack.b[0])
+			printf(" target [%d]  top [%d]\n", target, stack.b[0]);
+			if (target == stack.b[0])
 				pa(&stack);
-			// print_stack(stack.b, stack.lenb, 'b');
-		}
-		print_stack(stack.a, stack.lena, 'a');
-		printf("\n");
-		ra(&stack);
-		print_stack(stack.a, stack.lena, 'a');
 	}
-	// stack.lenb++;
-	// print_stack(stack.a, stack.lena, 1);
+	
+	// 	printf("\n");
+	// 	ra(&stack);
 	// }
+	// stack.lenb++;
+	print_stack(stack.a, stack.lena, 'a');
+	}
 	// // printf("%d\n", stack.lenb);
 void check_leaks()
 {
@@ -193,6 +172,7 @@ void check_leaks()
 int	main(int ac, char **av)
 {
 	// atexit(check_leaks);
+	// FILE *ptr = freopen("output.txt","w+",stdout);
 	t_push push;
 	t_stack stack;
 	stack.topb = 0;

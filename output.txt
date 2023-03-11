@@ -1,0 +1,182 @@
+ra
+ra
+ra
+pb
+pb
+pb
+ra
+pb
+rb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+pb
+pb
+pb
+pb
+ra
+pb
+pb
+A Stack contents: 
+
+B Stack contents: 
+936 123 48 47 15 11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [6] target [936]  top [936]
+--------------start 
+B Stack contents: 
+936 123 48 47 15 11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+936 
+B Stack contents: 
+123 48 47 15 11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [6] target [123]  top [123]
+--------------start 
+B Stack contents: 
+123 48 47 15 11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+123 936 
+B Stack contents: 
+48 47 15 11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [5] target [48]  top [48]
+--------------start 
+B Stack contents: 
+48 47 15 11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+48 123 936 
+B Stack contents: 
+47 15 11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [5] target [47]  top [47]
+--------------start 
+B Stack contents: 
+47 15 11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+47 48 123 936 
+B Stack contents: 
+15 11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [4] target [15]  top [15]
+--------------start 
+B Stack contents: 
+15 11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+15 47 48 123 936 
+B Stack contents: 
+11 9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [4] target [11]  top [11]
+--------------start 
+B Stack contents: 
+11 9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+11 15 47 48 123 936 
+B Stack contents: 
+9 8 5 4 3 1 7 
+------------------------0
+tmp -----> [3] target [9]  top [9]
+--------------start 
+B Stack contents: 
+9 8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+9 11 15 47 48 123 936 
+B Stack contents: 
+8 5 4 3 1 7 
+------------------------0
+tmp -----> [3] target [8]  top [8]
+--------------start 
+B Stack contents: 
+8 5 4 3 1 7 
+--------------end 
+pa
+A Stack contents: 
+8 9 11 15 47 48 123 936 
+B Stack contents: 
+5 4 3 1 7 
+------------------------4
+ target [7]  top [7]
+--------------start 
+B Stack contents: 
+7 4 3 1 5 
+--------------end 
+pa
+A Stack contents: 
+7 8 9 11 15 47 48 123 936 
+B Stack contents: 
+4 3 1 5 
+------------------------3
+ target [5]  top [5]
+--------------start 
+B Stack contents: 
+5 3 1 4 
+--------------end 
+pa
+A Stack contents: 
+5 7 8 9 11 15 47 48 123 936 
+B Stack contents: 
+3 1 4 
+------------------------2
+ target [4]  top [4]
+--------------start 
+B Stack contents: 
+4 1 3 
+--------------end 
+pa
+A Stack contents: 
+4 5 7 8 9 11 15 47 48 123 936 
+B Stack contents: 
+1 3 
+------------------------1
+--------------start 
+B Stack contents: 
+3 1 
+--------------end 
+pa
+ target [3]  top [1]
+A Stack contents: 
+3 4 5 7 8 9 11 15 47 48 123 936 
+B Stack contents: 
+1 
+------------------------0
+--------------start 
+B Stack contents: 
+1 
+--------------end 
+pa
+ target [1]  top [0]
+A Stack contents: 
+1 3 4 5 7 8 9 11 15 47 48 123 936 

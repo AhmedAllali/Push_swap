@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:15:52 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/11 06:20:21 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:36:14 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,74 +67,76 @@ void swap (int *a , int *b)
 	}
 	else
 	{
-		while (j<= stack->lena)
-		{
-		stack->a[j] = stack->a[j + 1];
-		j++;
-		}
 		while (i >= 0)
 		{
 		swap (&stack->b[i] , &stack->b[i-1]);
 		i--;
 		}
 		stack->b[0] = stack->a[0];
+		while (j<= stack->lena)
+		{
+		stack->a[j] = stack->a[j + 1];
+		j++;
+		}
 		stack->lena--;
 		stack->lenb++;
 	}
 	printf("pb\n");
 	
 }
+
 	
  void pa(t_stack *stack)
 {
+	printf("--------------start \n");
+	print_stack(stack->b,stack->lenb,'b');
+	
 	int tmp = 0;
 	int i = stack->lena;
 	int j = 0;
 	
 	if (stack->lenb == 0)
 		return;
-	while ( i> 0)
-	{
-		stack->a[i]=stack->a[i-1];
-		i--;
-	}
 	tmp = stack->b[0];
-	while (j<stack->lenb-1)
+	while (j<stack->lenb)
 	{
 		stack->b[j]=stack->b[j+1];
 		j++;
+	}
+	while (i > 0)
+	{
+		stack->a[i]=stack->a[i-1];
+		i--;
 	}
 	stack->a[0] = tmp;
 	stack->lena++;
 	// stack->a[stack->lena] = tmp;
 	stack->lenb--;
 	// write(1, "pa\n", 3);
+	printf("--------------end \n");
+	
 	printf("pa\n");
 		
 }
+	// print_stack(stack->b,stack->lenb,'b');
 void rra (t_stack *stack)
 {
 	int tmp = 0;
 	if (stack->lena == 0)
-		return;
+{	printf("here");
+		return;}
 	tmp = stack->a[0];
 	stack->a[0] = stack->a[stack->lena-1];
 	stack->a[stack->lena-1] = tmp;
 }
 void rrb (t_stack *stack)
 {
-	int tmp = 0;
-	int i =stack->lenb;
+int tmp = 0;
 	if (stack->lenb == 0)
 		return;
-	tmp = stack->b[stack->lenb-1];
-	while (i>0)
-	{
-		stack[i] = stack[i - 1];
-		i--;
-	}
-	stack->b[0] = tmp;
-	printf("rrb\n");
+	tmp = stack->b[0];
+	stack->b[0] = stack->b[stack->lenb-1];
+	stack->b[stack->lenb-1] = tmp;
 }
 void rr(t_stack *stack)
 {
@@ -168,7 +170,7 @@ void rb(t_stack *stack)
 		return;
 	tmp = stack->b[0];
 	// stack->b[0]= stack->b[stack->lenb-1];
-	while (i<=stack->lenb-1)
+	while (i<=stack->lenb)
 	{
 		stack->b[i] =stack->b[i+1];
 	 	i++;
