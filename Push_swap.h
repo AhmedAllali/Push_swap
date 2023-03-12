@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/11 17:24:40 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:59:25 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,22 @@ int		*init_stack(int len);
 void 	ss(t_stack stack);
 void	ft_push(int data, int len, int *stack);
 void 	print_stack(int *stack, int len, int a);
-void	 sa(int *stack, int len);
-void 	sb(int *stack, int len);
+void	 sa(int *stack, int len,int p);
+void 	sb(int *stack, int len,int p);
 void	pb(t_stack *stack);
 void	pa(t_stack *stack);
-void	ra(t_stack *stack);
-void	rb (t_stack *stack);
+void	ra(t_stack *stack,int p);
+void	rb (t_stack *stack,int p);
 void	rr(t_stack *stack);
-void 	rra(t_stack *stack);
-void	 rrb(t_stack *stack);
+void 	rra(t_stack *stack,int p);
+void	 rrb(t_stack *stack,int p);
 void 	rrr(t_stack *stack);
 int 	is_sorted(int *t, int len);
 void 	swap(int *a, int *b);
-int * f_to_b(t_stack *stack);
-void sort_table(int * stack,int len);
-
+int *	f_to_b(t_stack *stack);
+void	sort_table(int * stack,int len);
+void	back_to_a(t_stack *stack);
+int		max_stack (int *stack, int len);
+void 	sort_3(t_stack *stack);
 
 #endif

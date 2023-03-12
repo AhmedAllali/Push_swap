@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahallali <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 19:55:44 by ahallali          #+#    #+#              #
-#    Updated: 2023/03/11 20:49:27 by ahallali         ###   ########.fr        #
+#    Updated: 2023/03/12 17:59:56 by ahallali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS = Push_swap.c \
 		stack.c\
 		instructions.c\
 		is_sorted.c\
-		sorting_algo.c
+		sorting_algo.c\
+		sort_small.c
 # 
 LIB = libft/
 LIBFT= libft/libft.a
