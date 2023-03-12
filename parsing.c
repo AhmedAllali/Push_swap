@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 19:55:40 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/05 16:55:47 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:36:16 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_joinargs(char **av)
 	len = ft_getlen(av);
 	if (len == 0)
 		return (NULL);
-	res = (char*)malloc(len * sizeof (char));
+	res = (char *)malloc(len * sizeof (char));
 	if (!res)
 		return (NULL);
 	p = res;

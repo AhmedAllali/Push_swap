@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 05:02:14 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/05 16:33:22 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:31:48 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include<stdlib.h>
 # include<stdio.h>
 # include<limits.h>
-#include "../Push_swap.h"
+# include"../Push_swap.h"
 
 size_t	ft_strlen(const char *s);
 int		ft_isascii(int c);

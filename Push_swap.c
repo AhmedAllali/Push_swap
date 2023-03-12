@@ -6,18 +6,16 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/12 18:02:23 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:40:22 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-
-
-
-void	ft_pushswap(t_stack stack,t_push push, char **av)
+void	ft_pushswap(t_stack stack, t_push push, char **av)
 {
-	int check;
+	int	check;
+
 	stack.topb = 0;
 	stack.lena = 0;
 	push.i = 0;
@@ -25,7 +23,8 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 	push.joined = ft_joinargs(av);
 	push.splited = ft_split(push.joined, ' ');
 	check = ft_check(push);
-	if (hasduplicate(push.splited, check )== 1)
+	free(push.joined);
+	if (hasduplicate(push.splited, check) == 1)
 		ft_exit("Error\n");
 	push.values = malloc(sizeof(int) * check);
 	if (!push.values)
@@ -36,8 +35,7 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 		push.i++;
 	}
 	if (is_sorted(push.values, push.i) == 0)
-		ft_exit("Error++");
-
+		exit(0);
 	stack.a = init_stack(push.i);
 	stack.b = init_stack(push.i);
 	while (check)
@@ -46,38 +44,39 @@ void	ft_pushswap(t_stack stack,t_push push, char **av)
 		push.j++;
 		check--;
 	}
-	stack.lena =push.i;
+	stack.lena = push.i;
 	stack.lenb = 0;
 	if (stack.lena == 3)
-{
 		sort_3(&stack);
-		exit(0);
+	else if (stack.lena == 4)
+		sort_4(&stack);
+	else if (stack.lena == 5)
+		sort_5(&stack);
+	else
+	{
+		f_to_b(&stack);
+		back_to_a(&stack);
+	}
+	free(stack.b);
+	free(stack.a);
 }
-	sort_table(push.values,push.i);
-	f_to_b(&stack);
-	back_to_a(&stack);
 
-	
-
-
-}
-
+// void check_leaks()
 // {
 // 	system ("leaks push_swap");
 // }
+
 int	main(int ac, char **av)
 {
-	// atexit(check_leaks);
-	//FILE *ptr = freopen("output.txt","w+",stdout);
-	t_push push;
-	t_stack stack;
+	t_push	push;
+	t_stack	stack;
+
 	stack.topb = 0;
 	push.joined = NULL;
 	if (ac > 1)
 	{
-		ft_pushswap(stack ,push, av);
+		ft_pushswap(stack, push, av);
 	}
 	else
 		ft_exit("Error\n");
 }
-

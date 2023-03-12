@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahallali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 19:57:26 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/05 16:04:32 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:35:54 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_check(t_push push)
 	int	i;
 
 	i = 0;
-
 	while (push.splited && push.splited[i])
 	{
 		if (check_args(push.splited[i]) == 1)
@@ -50,9 +49,8 @@ int	hasduplicate(char **arr, int len)
 				arr[j] = arr[j] + 1;
 			if (arr[i][0] == '+' )
 				arr[i] = arr[i] + 1;
-			if (ft_strncmp(arr[i], arr[j], ft_strlen(arr[i])) == 0 &&
+			if (ft_strncmp(arr[i], arr[j], ft_strlen(arr[i])) == 0 && \
 				ft_strlen(arr[i]) == ft_strlen(arr[j]))
-
 				return (1);
 			j++;
 		}

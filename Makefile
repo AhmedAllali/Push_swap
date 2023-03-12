@@ -6,12 +6,12 @@
 #    By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 19:55:44 by ahallali          #+#    #+#              #
-#    Updated: 2023/03/12 17:59:56 by ahallali         ###   ########.fr        #
+#    Updated: 2023/03/13 00:26:18 by ahallali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc
+CC = cc
 #FLAGS = -Wall -Werror -Wextra
 SRCS = Push_swap.c \
 		tools.c \
@@ -20,7 +20,9 @@ SRCS = Push_swap.c \
 		instructions.c\
 		is_sorted.c\
 		sorting_algo.c\
-		sort_small.c
+		sort_small.c\
+		instructions2.c\
+		instructions3.c
 # 
 LIB = libft/
 LIBFT= libft/libft.a
