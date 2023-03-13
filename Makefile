@@ -6,40 +6,42 @@
 #    By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 19:55:44 by ahallali          #+#    #+#              #
-#    Updated: 2023/03/13 00:26:18 by ahallali         ###   ########.fr        #
+#    Updated: 2023/03/13 17:42:57 by ahallali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-#FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 SRCS = Push_swap.c \
-		tools.c \
-		parsing.c\
-		stack.c\
-		instructions.c\
-		is_sorted.c\
-		sorting_algo.c\
-		sort_small.c\
-		instructions2.c\
-		instructions3.c
-# 
-LIB = libft/
-LIBFT= libft/libft.a
-LIBFT_DIR = $(LIB)
+		mandatory/tools/tools.c \
+		mandatory/tools/parsing.c\
+		mandatory/tools/stack.c\
+		mandatory/tools/instructions.c\
+		mandatory/tools/is_sorted.c\
+		mandatory/tools/sorting_algo.c\
+		mandatory/tools/sort_small.c\
+		mandatory/tools/instructions2.c\
+		mandatory/tools/instructions3.c\
+		mandatory/tools/functions_libft.c\
+		mandatory/tools/functions_libft2.c\
+		mandatory/tools/functions_libft3.c\
+
+
 OBJECT = $(SRCS:.c=.o)
 INCLUDE = Push_swap.h
-$(NAME): $(OBJECT) $(LIBFT)
-	$(CC) $(FLAGS) $(OBJECT) -L$(LIBFT_DIR) -lft -g -o $(NAME)
-$(LIBFT) :
-		@make -sC $(LIB)
+
+all	: $(NAME)
+
+$(NAME): $(OBJECT)
+	$(CC) $(FLAGS) $(OBJECT)  -o $(NAME)
 
 %.o : %.c $(INCLUDE)
 		$(CC) $(FLAGS) -c $< -o $@
-all	: $(NAME) 
 clean : 
-		rm -rf $(OBJECT)
+	@rm -rf $(OBJECT)
+	@echo "Cleaning objects"
 fclean: clean
-	rm -rf $(NAME)
-	@make fclean -sC $(LIB)
+	@rm -rf $(NAME)
+	@echo "Cleaning objects && executable"
 re : fclean all 

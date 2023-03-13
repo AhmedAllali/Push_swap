@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:45 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/13 00:40:22 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:52:22 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,45 +26,19 @@ void	ft_pushswap(t_stack stack, t_push push, char **av)
 	free(push.joined);
 	if (hasduplicate(push.splited, check) == 1)
 		ft_exit("Error\n");
-	push.values = malloc(sizeof(int) * check);
-	if (!push.values)
-		return ;
-	while (push.splited[push.i] && check >= push.i + 1)
-	{
-		push.values[push.i] = ft_atoi(push.splited[push.i]);
-		push.i++;
-	}
+	push.values = init_stack(check);
+	s_to_v(&push, check);
 	if (is_sorted(push.values, push.i) == 0)
 		exit(0);
 	stack.a = init_stack(push.i);
 	stack.b = init_stack(push.i);
-	while (check)
-	{
-		ft_push(push.values[push.j], push.j, stack.a);
-		push.j++;
-		check--;
-	}
+	v_to_a(&push, &stack, check);
 	stack.lena = push.i;
 	stack.lenb = 0;
-	if (stack.lena == 3)
-		sort_3(&stack);
-	else if (stack.lena == 4)
-		sort_4(&stack);
-	else if (stack.lena == 5)
-		sort_5(&stack);
-	else
-	{
-		f_to_b(&stack);
-		back_to_a(&stack);
-	}
-	free(stack.b);
-	free(stack.a);
+	sort_stack(&stack);
+	free (stack.b);
+	free (stack.a);
 }
-
-// void check_leaks()
-// {
-// 	system ("leaks push_swap");
-// }
 
 int	main(int ac, char **av)
 {
@@ -78,5 +52,5 @@ int	main(int ac, char **av)
 		ft_pushswap(stack, push, av);
 	}
 	else
-		ft_exit("Error\n");
+		exit(1);
 }

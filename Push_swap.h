@@ -6,7 +6,7 @@
 /*   By: ahallali <ahallali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:31:42 by ahallali          #+#    #+#             */
-/*   Updated: 2023/03/12 23:40:46 by ahallali         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:43:17 by ahallali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # include<unistd.h>
 # include<stdio.h>
-# include "libft/libft.h"
+# include<stdlib.h>
 # include<limits.h>
-# include<string.h>
 
 typedef struct s_push
 {
@@ -74,5 +73,18 @@ void	sort_3(t_stack *stack);
 void	sort_4(t_stack *stack);
 void	sort_5(t_stack *stack);
 int		min_stack(int *stack, int len);
-
+void	sort_stack(t_stack *stack);
+void	s_to_v(t_push *push, int check);
+void	v_to_a(t_push *push, t_stack *stack, int check);
+void	check_fi_ai(t_stack *stack, int j, int index2, int index1);
+void	mv_a_1(t_stack *stack);
+void	mv_b_up_a_down(t_stack *stack, int i);
+void	sort_2(t_stack *stack);
+int		ft_atoi(const char *s);
+size_t	ft_strlen(const char *s);
+char	**ft_split(char const *s, char c);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_bzero(void *s, size_t n);
+int		ft_strncmp(const char *str1, const char	*str2, size_t lenght);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif
